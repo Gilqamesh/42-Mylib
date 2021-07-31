@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
+/*   By: edavid <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 10:05:13 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/31 17:53:38 by edavid           ###   ########.fr       */
+/*   Updated: 2021/07/31 20:11:43 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,5 +279,7 @@ void			ft_merge_sort_str(char **array, t_2_int start_end_indexes,
 int				*ft_intdup(int d);
 // Prints 'n' integers from 'arr' as integers
 void			ft_printintarr(int *arr, int n);
+// Returns the number of digits in 'd'
+int				ft_intlen(int d);
 
 #endif
