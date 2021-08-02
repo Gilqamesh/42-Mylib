@@ -29,7 +29,7 @@ char	*ft_itobase(int64_t n, int base)
 	len = ft_baselen(n, base);
 	if (!itobase_helper(&result, len, negative))
 		return ((char *)0);
-	while (len-- >= negative)
+	while (len-- > 0)
 	{
 		if (n % base > 9)
 			result[len + negative] = n % base - 9 + 'a';
