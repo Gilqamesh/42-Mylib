@@ -290,5 +290,7 @@ void			ft_putnstr_fd(char *s, int n, int fd);
 int				ft_maxofint(int a, int b);
 // Returns the number of digits in 'n' after converted to 'base' > 1
 int				ft_baselen(int64_t n, int base);
+// Converts 'n' to 'base' > 1 and returns the allocated string
+char			*ft_itobase(int64_t n, int base);
 
 #endif
