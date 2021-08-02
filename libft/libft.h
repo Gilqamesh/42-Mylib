@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stddef.h>
-# include <stdint.h>
 // Writes 'n' bytes of value 'c' to the string 's'
 void			*ft_memset(void *s, int c, size_t n);
 // Writes 'n' zeroed bytes to the string 's'
@@ -289,8 +288,8 @@ void			ft_putnstr_fd(char *s, int n, int fd);
 // Returns the maximum integer out of 'a' and 'b'
 int				ft_maxofint(int a, int b);
 // Returns the number of digits in 'n' after converted to 'base' > 1
-int				ft_baselen(int64_t n, int base);
+int				ft_baselen(unsigned long n, int base);
 // Converts 'n' to 'base' > 1 and returns the allocated string
-char			*ft_itobase(int64_t n, int base);
+char			*ft_itobase(unsigned long n, int base);
 
 #endif
