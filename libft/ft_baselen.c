@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int	ft_baselen(int64_t n, int base)
+int	ft_baselen(unsigned long n, int base)
 {
 	int	len;
 
