@@ -32,7 +32,7 @@ char	*ft_itobase(int64_t n, int base)
 	while (len-- > 0)
 	{
 		if (n % base > 9)
-			result[len + negative] = n % base - 9 + 'a';
+			result[len + negative] = n % base - 10 + 'a';
 		else
 			result[len + negative] = n % base + '0';
 		n /= base;
