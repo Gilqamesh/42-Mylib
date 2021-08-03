@@ -291,5 +291,7 @@ int				ft_maxofint(int a, int b);
 int				ft_baselen(unsigned long n, int base);
 // Converts 'n' to 'base' > 1 and returns the allocated string
 char			*ft_itobase(unsigned long n, int base);
+// Counts the number of words in 's' with a delimiter character of 'c'
+int			ft_n_of_words_by_delim(char *s, char c);
 
 #endif
