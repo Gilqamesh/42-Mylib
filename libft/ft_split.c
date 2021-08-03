@@ -21,30 +21,6 @@ static char	**ft_free(char ***s, int i)
 	return ((char **)0);
 }
 
-static int	ft_n_of_words_by_delim(char *s, char c)
-{
-	int	in_word;
-	int	n_of_words;
-
-	n_of_words = 0;
-	in_word = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			if (!in_word)
-			{
-				in_word = 1;
-				n_of_words++;
-			}
-		}
-		else
-			in_word = 0;
-		s++;
-	}
-	return (n_of_words);
-}
-
 static char	**split_fn(char **splits_array, int n_of_splits,
 char const *s, int c)
 {
