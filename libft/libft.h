@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdbool.h>
 // Writes 'n' bytes of value 'c' to the string 's'
 void			*ft_memset(void *s, int c, size_t n);
 // Writes 'n' zeroed bytes to the string 's'
