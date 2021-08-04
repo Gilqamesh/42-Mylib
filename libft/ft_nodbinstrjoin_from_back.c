@@ -29,7 +29,8 @@ char	*ft_nodbinstrjoin_from_back(t_node_binary *list)
 	while (cur)
 	{
 		len += ft_strlen((char *)cur->content);
-		cur = cur->next;
+		if (cur->next)
+			cur = cur->next;
 	}
 	result = malloc(len + 1);
 	cur = list;
@@ -39,7 +40,7 @@ char	*ft_nodbinstrjoin_from_back(t_node_binary *list)
 		index_res_tmp.b = -1;
 		while (((char *)cur->content)[++index_res_tmp.b])
 			result[++index_res_tmp.a] = ((char *)cur->content)[index_res_tmp.b];
-		cur = cur->next;
+		cur = cur->prev;
 	}
 	return (result);
 }
