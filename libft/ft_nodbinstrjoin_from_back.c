@@ -31,6 +31,8 @@ char	*ft_nodbinstrjoin_from_back(t_node_binary *list)
 		len += ft_strlen((char *)cur->content);
 		if (cur->next)
 			cur = cur->next;
+		else
+			break ;
 	}
 	result = malloc(len + 1);
 	cur = list;
