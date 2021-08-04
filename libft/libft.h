@@ -304,6 +304,6 @@ char			*ft_nodbinstrjoin_from_back(t_node_binary *list);
 void			ft_lstmallocfree(t_list **lst);
 // Malloc instead it also adds the address into 'lst'
 // Use ft_lstmallocfree to free all the saved addresses
-void			*ft_lstmallocwrapper(t_list **lst, size_t size);
+void			*ft_lstmallocwrapper(t_list **lst, size_t size, bool is_calloc);
 
 #endif
