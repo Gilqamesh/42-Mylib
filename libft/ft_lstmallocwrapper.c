@@ -27,6 +27,6 @@ void	*ft_lstmallocwrapper(t_list **lst, size_t size, bool is_calloc)
 		new = malloc(size);
 	if (!new)
 		return (NULL);
-	ft_lstadd_front(lst, new);
+	ft_lstadd_front(lst, ft_lstnew(new));
 	return (new);
 }
