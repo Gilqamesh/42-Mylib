@@ -35,6 +35,7 @@ char	*ft_nodbinstrjoin_from_back(t_node_binary *list)
 			break ;
 	}
 	result = malloc(len + 1);
+	result[len] = '\0';
 	cur = list;
 	index_res_tmp.a = -1;
 	while (cur)
