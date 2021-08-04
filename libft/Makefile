@@ -26,7 +26,7 @@ ft_nodbinmap.c ft_nodbinnew.c ft_nodbinsize.c ft_nodbindel.c ft_nodbinprint_int.
 ft_lstsortedinsert_int.c ft_lstdel.c ft_lstprint_int.c ft_merge_sort_int.c \
 ft_abs_int.c ft_merge_sort_str.c ft_strcmp.c ft_intdup.c ft_printintarr.c \
 ft_intlen.c ft_minofint.c ft_putnstr_fd.c ft_maxofint.c ft_baselen.c ft_itobase.c \
-ft_n_of_words_by_delim.c ft_destroy_str_arr.c
+ft_n_of_words_by_delim.c ft_destroy_str_arr.c ft_nodbinstrjoin_from_back.c
 
 NAME = libft.a
 
