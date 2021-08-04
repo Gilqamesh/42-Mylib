@@ -295,5 +295,8 @@ char			*ft_itobase(unsigned long n, int base);
 int			ft_n_of_words_by_delim(char *s, char c);
 // Frees the char **str array and sets it to NULL
 void			ft_destroy_str_arr(char ***str);
+// Allocates and returns a string that is the concatenation of going through
+// the list's str contents
+char			*ft_nodbinstrjoin_from_back(t_node_binary *list);
 
 #endif
