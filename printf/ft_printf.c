@@ -6,7 +6,7 @@
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 14:20:43 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/22 14:06:42 by edavid           ###   ########.fr       */
+/*   Updated: 2021/08/21 16:41:26 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_printf(const char *format, ...)
 
 	set_vars_zero(&format_index, &n_of_printed);
 	va_start(ap, format);
-	while (format[format_index])
+	while (format && format[format_index])
 	{
 		if (format[format_index] == '%')
 		{

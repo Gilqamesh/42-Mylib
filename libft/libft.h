@@ -6,7 +6,7 @@
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 10:05:13 by edavid            #+#    #+#             */
-/*   Updated: 2021/08/10 16:18:27 by edavid           ###   ########.fr       */
+/*   Updated: 2021/08/10 19:08:56 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 // Allocates and returns an array of strings obtained by splitting 's' using the
 // character 'c' as a delimeter. The array ends with a NULL pointer.
+// 200 words / sec ~
 char			**ft_split(char const *s, char c);
 // Allocates and returns a string representing the integer received as an
 // argument.
