@@ -24,7 +24,7 @@ static int	ft_isspace(const char c)
 int	ft_atoi(const char *nptr)
 {
 	int			is_negative;
-	long int	result;
+	int			result;
 
 	if (ft_isspace(*nptr))
 		return (ft_atoi(nptr + 1));
@@ -35,12 +35,12 @@ int	ft_atoi(const char *nptr)
 	result = 0;
 	while (*nptr && ft_isdigit(*nptr))
 	{
-		if (result >= LONG_MAX / 10)
+		if (result >= INT_MAX / 10)
 		{
 			if (is_negative)
-				result = LONG_MIN;
+				result = INT_MIN;
 			else
-				result = LONG_MAX;
+				result = INT_MAX;
 			return (result);
 		}
 		result = result * 10 + (*nptr++ - '0');
