@@ -50,7 +50,7 @@ static void	deleteNodes(t_list *lst)
 	}
 }
 
-static void	initLst(bool *setChars, t_list *tokens, char const *s)
+static void	initLst(bool *setChars, t_list **tokens, char const *s)
 {
 	char	*prev;
 	char	*cur;
@@ -62,7 +62,7 @@ static void	initLst(bool *setChars, t_list *tokens, char const *s)
 		if (setChars[(unsigned char)*cur])
 		{
 			if (cur != prev)
-				ft_lstadd_back(&tokens, ft_lstnew(ft_substr(prev, 0,
+				ft_lstadd_back(tokens, ft_lstnew(ft_substr(prev, 0,
 							cur - prev)));
 			prev = ++cur;
 		}
@@ -70,7 +70,7 @@ static void	initLst(bool *setChars, t_list *tokens, char const *s)
 		{
 			cur++;
 			if (!*cur)
-				ft_lstadd_back(&tokens, ft_lstnew(ft_substr(prev, 0,
+				ft_lstadd_back(tokens, ft_lstnew(ft_substr(prev, 0,
 							cur - prev)));
 		}
 	}
