@@ -6,7 +6,7 @@
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 19:31:23 by edavid            #+#    #+#             */
-/*   Updated: 2021/08/10 16:18:14 by edavid           ###   ########.fr       */
+/*   Updated: 2021/09/05 15:05:29 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**ft_split(char const *s, char c)
 	int		n_of_splits;
 	char	**splits_array;
 
-	if (!s)
+	if (s == NULL)
 		return ((char **)0);
 	n_of_splits = ft_n_of_words_by_delim((char *)s, c) - 1;
 	splits_array = (char **)malloc((n_of_splits + 2) * sizeof(*splits_array));
