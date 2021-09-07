@@ -299,6 +299,9 @@ void			ft_destroy_str_arr(char ***str);
 // Allocates and returns a string that is the concatenation of going through
 // the list's str contents
 char			*ft_nodbinstrjoin_from_back(t_node_binary *list);
+// Allocates and returns a NULL terminated string array that is the
+// concatenation of going through the list's NULL terminated str array contents
+char			**ft_nodbinstrarrjoin_from_back(t_node_binary *list);
 // Free all addresses stored in 'lst' then clears lst and sets
 // it to NULL
 void			ft_lstmallocfree(t_list **lst);
