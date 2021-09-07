@@ -13,6 +13,21 @@
 #include "libft.h"
 #include <stdlib.h>
 
+static void	concatenateResult(char *result, t_node_binary *cur)
+{
+	int	result_index;
+	int	curcontent_index;
+
+	result_index = -1;
+	while (cur)
+	{
+		curcontent_index = -1;
+		while (((char *)cur->content)[++curcontent_index])
+			result[++result_index] = ((char *)cur->content)[curcontent_index];
+		cur = cur->prev;
+	}
+}
+
 // Allocates and returns a string that is the concatenation of going through
 // the list's str contents
 char	*ft_nodbinstrjoin_from_back(t_node_binary *list)
@@ -20,7 +35,6 @@ char	*ft_nodbinstrjoin_from_back(t_node_binary *list)
 	int				len;
 	t_node_binary	*cur;
 	char			*result;
-	t_2_int			index_res_tmp;
 
 	if (!list)
 		return (ft_strdup(""));
@@ -36,13 +50,6 @@ char	*ft_nodbinstrjoin_from_back(t_node_binary *list)
 	}
 	result = malloc(len + 1);
 	result[len] = '\0';
-	index_res_tmp.a = -1;
-	while (cur)
-	{
-		index_res_tmp.b = -1;
-		while (((char *)cur->content)[++index_res_tmp.b])
-			result[++index_res_tmp.a] = ((char *)cur->content)[index_res_tmp.b];
-		cur = cur->prev;
-	}
+	concatenateResult(result, cur);
 	return (result);
 }
