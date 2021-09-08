@@ -313,5 +313,7 @@ void			ft_lstmallocfree(t_list **lst);
 void			*ft_lstmallocwrapper(t_list **lst, size_t size, bool is_calloc);
 // Returns the first index in 'str' that is not part of 'set'
 int				ft_trim_from_left_index(char *str, char *set);
+// Returns true if 'str' only consists of alphanumeric characters.
+bool			ft_isStrAlphaNumeric(char *str);
 
 #endif
