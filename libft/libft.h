@@ -311,5 +311,7 @@ void			ft_lstmallocfree(t_list **lst);
 // Malloc instead it also adds the address into 'lst'
 // Use ft_lstmallocfree to free all the saved addresses
 void			*ft_lstmallocwrapper(t_list **lst, size_t size, bool is_calloc);
+// Returns the first index in 'str' that is not part of 'set'
+int				ft_trim_from_left_index(char *str, char *set);
 
 #endif
