@@ -317,5 +317,7 @@ int				ft_trim_from_left_index(char *str, char *set);
 bool			ft_isStrAlphaNumeric(char *str);
 // Returns true if 'str' is a valid C identifieer, false otherwise.
 bool			ft_isValidCName(char *str);
+// Returns true if 'str' is a valid Bash identifier, false otherwise.
+bool			ft_isValidBashIdentifier(char *str);
 
 #endif
