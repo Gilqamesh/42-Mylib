@@ -17,6 +17,8 @@
 */
 bool	ft_isStrAlphaNumeric(char *str)
 {
+	if (str == NULL)
+		return (false);
 	while (*str)
 		if (!ft_isalnum(*str++))
 			return (false);
