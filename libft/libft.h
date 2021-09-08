@@ -315,5 +315,7 @@ void			*ft_lstmallocwrapper(t_list **lst, size_t size, bool is_calloc);
 int				ft_trim_from_left_index(char *str, char *set);
 // Returns true if 'str' only consists of alphanumeric characters.
 bool			ft_isStrAlphaNumeric(char *str);
+// Returns true if 'str' is a valid C identifieer, false otherwise.
+bool			ft_isValidCName(char *str);
 
 #endif
