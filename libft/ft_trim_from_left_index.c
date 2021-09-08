@@ -23,6 +23,7 @@ int	ft_trim_from_left_index(char *str, char *set)
 		if (setChars[(unsigned char)*str] == false)
 			return (ret);
 		ret++;
+		str++;
 	}
 	return (ret);
 }
