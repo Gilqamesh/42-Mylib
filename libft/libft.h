@@ -319,5 +319,7 @@ bool			ft_isStrAlphaNumeric(char *str);
 bool			ft_isValidCName(char *str);
 // Returns true if 'str' is a valid Bash identifier, false otherwise.
 bool			ft_isValidBashIdentifier(char *str);
+// Returns true if 'str' is contained in the NULL terminated 'strArr'.
+bool			ft_isStrContainedInStrArr(char *str, char **strArr);
 
 #endif
