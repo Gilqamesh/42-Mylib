@@ -332,6 +332,8 @@ typedef struct s_obj_lst
 # endif
 // Finds the str 'key' in the list 'head' and returns the address to it.
 t_obj_lst		*ft_objlst_findbykey(t_obj_lst *head, char *key);
+// Adds the element 'new' at the beginning of the list.
+void			ft_objlstadd_front(t_obj_lst **lst, t_obj_lst *new);
 // Allocates and returns a new element t_obj_lst *result;
 t_obj_lst		*ft_objlst_new(char *key, char *value);
 // Works like the function 'ft_strdup' but only copies the 'str' until the first
