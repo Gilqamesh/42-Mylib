@@ -342,5 +342,8 @@ char			*ft_strdupchr(char *str, char c);
 // Creates a list using the NULL terminated 'strArr' and returns a pointer to it
 // In reverse order, using ft_objlst_front.
 t_obj_lst		*ft_objlst_mapFromEnv(char **strArr);
+// Frees the list using the function 'del' and free.
+// Finally, the pointer to the list is set to NULL.
+void			ft_objlst_clear(t_obj_lst **lst, void (*del)(void *));
 
 #endif
