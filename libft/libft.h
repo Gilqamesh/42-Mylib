@@ -330,5 +330,7 @@ typedef struct s_obj_lst
 	struct s_obj_lst	*next;
 }	t_obj_lst;
 # endif
+// Finds the str 'key' in the list 'head' and returns the address to it.
+t_obj_lst		*ft_objlst_findbykey(t_obj_lst *head, char *key);
 
 #endif
