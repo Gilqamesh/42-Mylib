@@ -34,7 +34,7 @@ t_obj_lst	*ft_objlst_mapFromEnv(char **strArr)
 		value = ft_strchr(strArr[i], '=');
 		if (value)
 			value = ft_substr(value + 1, 0, ft_strlen(strArr[i])
-				- ft_strlen(key) - 1);
+					- ft_strlen(key) - 1);
 		ft_objlstadd_front(&lst, ft_objlst_new(key, value));
 	}
 	return (lst);
