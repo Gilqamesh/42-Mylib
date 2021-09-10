@@ -321,5 +321,14 @@ bool			ft_isValidCName(char *str);
 bool			ft_isValidBashIdentifier(char *str);
 // Returns true if 'str' is contained in the NULL terminated 'strArr'.
 bool			ft_isStrContainedInStrArr(char *str, char **strArr);
+# ifndef T_OBJECT_LST
+#  define T_OBJECT_LST
+typedef struct s_object_lst
+{
+	char	*key;
+	char	*value;
+	struct s_object_lst	*next;
+}	t_object_lst;
+# endif
 
 #endif
