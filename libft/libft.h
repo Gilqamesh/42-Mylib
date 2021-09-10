@@ -339,5 +339,8 @@ t_obj_lst		*ft_objlst_new(char *key, char *value);
 // Works like the function 'ft_strdup' but only copies the 'str' until the first
 // matching of char 'c' in 'str'.
 char			*ft_strdupchr(char *str, char c);
+// Creates a list using the NULL terminated 'strArr' and returns a pointer to it
+// In reverse order, using ft_objlst_front.
+t_obj_lst		*ft_objlst_mapFromEnv(char **strArr);
 
 #endif
