@@ -348,5 +348,7 @@ void			ft_objlst_clear(t_obj_lst **lst, void (*del)(void *));
 // Applies the function 'del' on 'lst'.
 // The memory of 'next' is not freed.
 void			ft_objlst_delone(t_obj_lst *lst, void (*del)(void *));
+// Frees node->content and node, where node is of type *t_obj_lst
+void			ft_objlst_del(void *node);
 
 #endif
