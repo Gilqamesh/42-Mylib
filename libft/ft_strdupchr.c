@@ -13,8 +13,8 @@
 #include "libft.h"
 
 /*
-** Works like the function 'ft_strdup' but only copies the 'str' until the first
-** matching of char 'c' in 'str'. 
+** Works like the function 'ft_strdup' but only copies the 'str' just before the
+** first matching of char 'c' in 'str'.
 */
 char	*ft_strdupchr(char *str, char c)
 {
