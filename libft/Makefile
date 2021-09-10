@@ -29,7 +29,8 @@ ft_intlen.c ft_minofint.c ft_putnstr_fd.c ft_maxofint.c ft_baselen.c ft_itobase.
 ft_n_of_words_by_delim.c ft_destroy_str_arr.c ft_nodbinstrjoin_from_back.c \
 ft_lstmallocwrapper.c ft_lstmallocfree.c ft_splitstr.c ft_nodbinstrarrjoin_from_back.c \
 ft_nodbinstr_to_strarr.c ft_trim_from_left_index.c ft_isStrAlphaNumeric.c \
-ft_isValidCName.c ft_isValidBashIdentifier.c ft_isStrContainedInStrArr.c
+ft_isValidCName.c ft_isValidBashIdentifier.c ft_isStrContainedInStrArr.c \
+ft_objlst_findbykey.c
 
 NAME = libft.a
 
