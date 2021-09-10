@@ -332,5 +332,8 @@ typedef struct s_obj_lst
 # endif
 // Finds the str 'key' in the list 'head' and returns the address to it.
 t_obj_lst		*ft_objlst_findbykey(t_obj_lst *head, char *key);
+// Works like the function 'ft_strdup' but only copies the 'str' until the first
+// matching of char 'c' in 'str'.
+char			*ft_strdupchr(char *str, char c);
 
 #endif
