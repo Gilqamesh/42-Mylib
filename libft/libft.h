@@ -345,5 +345,8 @@ t_obj_lst		*ft_objlst_mapFromEnv(char **strArr);
 // Frees the list using the function 'del' and free.
 // Finally, the pointer to the list is set to NULL.
 void			ft_objlst_clear(t_obj_lst **lst, void (*del)(void *));
+// Applies the function 'del' on 'lst'.
+// The memory of 'next' is not freed.
+void			ft_objlst_delone(t_obj_lst *lst, void (*del)(void *));
 
 #endif
