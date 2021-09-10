@@ -31,7 +31,7 @@ ft_lstmallocwrapper.c ft_lstmallocfree.c ft_splitstr.c ft_nodbinstrarrjoin_from_
 ft_nodbinstr_to_strarr.c ft_trim_from_left_index.c ft_isStrAlphaNumeric.c \
 ft_isValidCName.c ft_isValidBashIdentifier.c ft_isStrContainedInStrArr.c \
 ft_objlst_findbykey.c ft_strdupchr.c ft_objlst_add_front.c ft_objlst_new.c.c \
-ft_objlst_mapFromEnv.c
+ft_objlst_mapFromEnv.c ft_objlst_clear.c
 
 NAME = libft.a
 
