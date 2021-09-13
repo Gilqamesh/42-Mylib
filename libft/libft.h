@@ -378,5 +378,8 @@ void			ft_filelstdel(void *node);
 void			ft_filelstdelone(t_filelst *lst, void (*del)(void *));
 // Allocates and returns a new element t_filelst *result;
 t_filelst		*ft_filelstnew(char *filename, int mode);
+// Find 'node' in t_obj_lst 'lst' and deletes it keeping the rest of the list
+// intact.
+void			ft_objlst_rem(t_obj_lst **lst, t_obj_lst *node);
 
 #endif
