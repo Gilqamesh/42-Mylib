@@ -350,5 +350,33 @@ void			ft_objlst_clear(t_obj_lst **lst, void (*del)(void *));
 void			ft_objlst_delone(t_obj_lst *lst, void (*del)(void *));
 // Frees node->content and node, where node is of type *t_obj_lst
 void			ft_objlst_del(void *node);
+# ifndef T_FILELST
+#  define T_FILELST
+enum e_redirection_mode
+{
+	REDIR_IN,
+	REDIR_OUT,
+	REDIR_APPEND,
+	REDIR_HEREDOC
+};
+typedef struct s_filelst
+{
+	char					*filename;
+	enum e_redirection_mode	mode;
+	struct s_filelst		*next;
+}	t_filelst;
+# endif
+// Adds the element 'new' at the end of the list.
+void			ft_filelstadd_back(t_filelst **lst, t_filelst *new);
+// Frees the list using the function 'del'.
+// Finally, the pointer to the list is set to NULL.
+void			ft_filelstclear(t_filelst **lst, void (*del)(void *));
+// Frees memory associated with 'node' that is of t_filelst* type.
+void			ft_filelstdel(void *node);
+// Applies the function 'del' on 'lst'.
+// The memory of 'next' is not freed.
+void			ft_filelstdelone(t_filelst *lst, void (*del)(void *));
+// Allocates and returns a new element t_filelst *result;
+t_filelst		*ft_filelstnew(char *filename, int mode);
 
 #endif
