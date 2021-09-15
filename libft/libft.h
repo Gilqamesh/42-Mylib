@@ -357,7 +357,8 @@ enum e_redirection_mode
 	REDIR_IN,
 	REDIR_OUT,
 	REDIR_APPEND,
-	REDIR_HEREDOC
+	REDIR_HEREDOC,
+	REDIR_VOID
 };
 typedef struct s_filelst
 {
