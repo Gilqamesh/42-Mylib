@@ -26,7 +26,7 @@ t_obj_lst	*ft_objlst_findbykey(t_obj_lst *head, char *key)
 	cur = head;
 	while (cur)
 	{
-		if (!ft_strcmp(key, head->key))
+		if (!ft_strcmp(key, cur->key))
 			break ;
 		cur = cur->next;
 	}
