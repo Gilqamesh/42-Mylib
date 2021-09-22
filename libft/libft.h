@@ -389,5 +389,9 @@ t_filelst		*ft_filelstnew(char *filename, int mode);
 // Allocates and returns a NULL terminated str array that has 'str' as its
 // first element.
 char			**ft_strToStrArr(char *str);
+// Returns true if 'str' is a valid number.
+// ex of valid strings: "-234", "+3432"
+// ex of not valid strings: "--32", "234a"
+bool			ft_isStrNumber(char *str);
 
 #endif
