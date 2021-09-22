@@ -352,6 +352,11 @@ void			ft_objlst_clear(t_obj_lst **lst, void (*del)(void *));
 void			ft_objlst_delone(t_obj_lst *lst, void (*del)(void *));
 // Frees node->content and node, where node is of type *t_obj_lst
 void			ft_objlst_del(void *node);
+// Find 'node' in t_obj_lst 'lst' and deletes it keeping the rest of the list
+// intact.
+void			ft_objlst_rem(t_obj_lst **lst, t_obj_lst *node);
+// Inserts the element 'new' to 'lst' by the alphabetical ordering of new->key.
+void			ft_objlstinsert(t_obj_lst **lst, t_obj_lst *new);
 # ifndef T_FILELST
 #  define T_FILELST
 enum e_redirection_mode
@@ -381,9 +386,6 @@ void			ft_filelstdel(void *node);
 void			ft_filelstdelone(t_filelst *lst, void (*del)(void *));
 // Allocates and returns a new element t_filelst *result;
 t_filelst		*ft_filelstnew(char *filename, int mode);
-// Find 'node' in t_obj_lst 'lst' and deletes it keeping the rest of the list
-// intact.
-void			ft_objlst_rem(t_obj_lst **lst, t_obj_lst *node);
 // Allocates and returns a NULL terminated str array that has 'str' as its
 // first element.
 char			**ft_strToStrArr(char *str);
