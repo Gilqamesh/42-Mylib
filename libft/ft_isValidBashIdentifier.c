@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_isValidBashIdentifier.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/08 16:53:29 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/08 16:53:59 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Returns true if 'str' is a valid Bash identifier, false otherwise.
+*/
+bool	ft_isValidBashIdentifier(char *str)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
-
-	if (!lst)
-		return ;
-	original = lst;
-	while (*lst && n)
+	if (str == NULL)
+		return (false);
+	if (ft_isalpha(*str) || *str == '_')
+		str++;
+	while (*str)
 	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
+		if (!ft_isalnum(*str) && *str != '_')
+			return (false);
+		str++;
 	}
-	*original = NULL;
+	return (true);
 }

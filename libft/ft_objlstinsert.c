@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_objlstinsert.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/22 14:19:31 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/22 15:32:03 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Inserts the element 'new' to 'lst' by the alphabetical ordering of
+** new->key.
+*/
+void	ft_objlstinsert(t_obj_lst **lst, t_obj_lst *new)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
-
-	if (!lst)
+	if (lst == NULL || new == NULL)
 		return ;
-	original = lst;
-	while (*lst && n)
-	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
-	}
-	*original = NULL;
+	while (*lst && ft_strcmp((*lst)->key, new->key) < 0)
+		lst = &(*lst)->next;
+	new->next = *lst;
+	*lst = new;
 }

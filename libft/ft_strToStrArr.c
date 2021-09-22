@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_strToStrArr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/18 14:40:12 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/18 14:42:04 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Allocates and returns a NULL terminated str array that has 'str' as its
+** first element.
+*/
+char	**ft_strToStrArr(char *str)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
+	char	**strArr;
 
-	if (!lst)
-		return ;
-	original = lst;
-	while (*lst && n)
+	if (str == NULL)
 	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
+		strArr = ft_calloc(1, sizeof(*strArr));
+		return (strArr);
 	}
-	*original = NULL;
+	strArr = ft_calloc(2, sizeof(*strArr));
+	strArr[0] = ft_strdup(str);
+	return (strArr);
 }

@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_objlst_add_front.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/10 17:53:19 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/10 17:54:13 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Adds the element 'new' at the beginning of the list.
+*/
+void	ft_objlstadd_front(t_obj_lst **lst, t_obj_lst *new)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
-
-	if (!lst)
-		return ;
-	original = lst;
-	while (*lst && n)
-	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
-	}
-	*original = NULL;
+	new->next = *lst;
+	*lst = new;
 }

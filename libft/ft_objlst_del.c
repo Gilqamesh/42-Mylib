@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_objlst_del.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/07/26 14:18:48 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/10 18:46:36 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Frees node->content and node, where node is of type *t_obj_lst
+*/
+void	ft_objlst_del(void *node)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
-
-	if (!lst)
+	if (node == NULL)
 		return ;
-	original = lst;
-	while (*lst && n)
-	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
-	}
-	*original = NULL;
+	if (((t_obj_lst *)node)->key)
+		free(((t_obj_lst *)node)->key);
+	if (((t_obj_lst *)node)->value)
+		free(((t_obj_lst *)node)->value);
+	free(node);
 }

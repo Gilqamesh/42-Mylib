@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_isStrContainedInStrArr.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/09 18:01:29 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/09 18:03:36 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Returns true if 'str' is contained in the NULL terminated 'strArr'
+*/
+bool	ft_isStrContainedInStrArr(char *str, char **strArr)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
-
-	if (!lst)
-		return ;
-	original = lst;
-	while (*lst && n)
+	if (str == NULL || strArr == NULL)
+		return (false);
+	while (*strArr)
 	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
+		if (!ft_strcmp(str, *strArr))
+			return (true);
+		strArr++;
 	}
-	*original = NULL;
+	return (false);
 }

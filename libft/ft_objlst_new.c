@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_objlst_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/10 17:55:29 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/10 18:20:13 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Allocates and returns a new element t_obj_lst *result;
+** result->key = key;
+** result->value = value;
+** The variable 'next' is initialized to NULL.
+*/
+t_obj_lst	*ft_objlst_new(char *key, char *value)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
+	t_obj_lst	*new;
 
-	if (!lst)
-		return ;
-	original = lst;
-	while (*lst && n)
-	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
-	}
-	*original = NULL;
+	new = ft_calloc(1, sizeof(*new));
+	new->key = key;
+	new->value = value;
+	new->next = NULL;
+	return (new);
 }

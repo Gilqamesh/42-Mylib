@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_filelstnew.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/13 14:19:41 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/13 14:21:30 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Allocates and returns a new element t_filelst *result;
+** result->filename = filename;
+** result->mode = mode;
+** The variable 'next' is initialized to NULL.
+*/
+t_filelst	*ft_filelstnew(char *filename, int mode)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
+	t_filelst	*new;
 
-	if (!lst)
-		return ;
-	original = lst;
-	while (*lst && n)
-	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
-	}
-	*original = NULL;
+	new = ft_calloc(1, sizeof(*new));
+	new->filename = filename;
+	new->mode = mode;
+	new->next = NULL;
+	return (new);
 }

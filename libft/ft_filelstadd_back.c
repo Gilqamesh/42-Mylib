@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_filelstadd_back.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/13 13:59:37 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/13 14:15:45 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Adds the element 'new' at the end of the list.
+*/
+void	ft_filelstadd_back(t_filelst **lst, t_filelst *new)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
+	t_filelst	*cur;
 
-	if (!lst)
+	if (new == NULL)
 		return ;
-	original = lst;
-	while (*lst && n)
+	if (*lst == NULL)
 	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
+		*lst = new;
+		return ;
 	}
-	*original = NULL;
+	cur = *lst;
+	while (cur->next)
+		cur = cur->next;
+	cur->next = new;
 }

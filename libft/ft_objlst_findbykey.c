@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_objlst_findbykey.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/10 17:32:55 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/10 17:40:36 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Finds the str 'key' in the list 'head' and returns the address to it.
+** Returns NULL if no match was found.
+** Match if: 'key' == 'head'->key
+*/
+t_obj_lst	*ft_objlst_findbykey(t_obj_lst *head, char *key)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
+	t_obj_lst	*cur;
 
-	if (!lst)
-		return ;
-	original = lst;
-	while (*lst && n)
+	if (head == NULL)
+		return (NULL);
+	cur = head;
+	while (cur)
 	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
+		if (!ft_strcmp(key, cur->key))
 			break ;
+		cur = cur->next;
 	}
-	*original = NULL;
+	return (cur);
 }

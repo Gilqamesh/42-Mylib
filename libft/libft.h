@@ -299,11 +299,99 @@ void			ft_destroy_str_arr(char ***str);
 // Allocates and returns a string that is the concatenation of going through
 // the list's str contents
 char			*ft_nodbinstrjoin_from_back(t_node_binary *list);
+// Allocates and returns a NULL terminated string array that is the
+// concatenation of going through the list's NULL terminated str array contents
+char			**ft_nodbinstrarrjoin_from_back(t_node_binary *list);
+// Allocates and returns a NULL terminated string array that is the
+// concatenation of going through the list's str contents
+char			**ft_nodbinstr_to_strarr(t_node_binary *list);
 // Free all addresses stored in 'lst' then clears lst and sets
 // it to NULL
 void			ft_lstmallocfree(t_list **lst);
 // Malloc instead it also adds the address into 'lst'
 // Use ft_lstmallocfree to free all the saved addresses
 void			*ft_lstmallocwrapper(t_list **lst, size_t size, bool is_calloc);
+// Returns the first index in 'str' that is not part of 'set'
+int				ft_trim_from_left_index(char *str, char *set);
+// Returns the first index in 'str' that is not part of 'set'
+int				ft_trim_from_right_index(char *str, char *set);
+// Returns true if 'str' only consists of alphanumeric characters.
+bool			ft_isStrAlphaNumeric(char *str);
+// Returns true if 'str' is a valid C identifieer, false otherwise.
+bool			ft_isValidCName(char *str);
+// Returns true if 'str' is a valid Bash identifier, false otherwise.
+bool			ft_isValidBashIdentifier(char *str);
+// Returns true if 'str' is contained in the NULL terminated 'strArr'.
+bool			ft_isStrContainedInStrArr(char *str, char **strArr);
+# ifndef T_OBJ_LST
+#  define T_OBJ_LST
+typedef struct s_obj_lst
+{
+	char	*key;
+	char	*value;
+	struct s_obj_lst	*next;
+}	t_obj_lst;
+# endif
+// Finds the str 'key' in the list 'head' and returns the address to it.
+t_obj_lst		*ft_objlst_findbykey(t_obj_lst *head, char *key);
+// Adds the element 'new' at the beginning of the list.
+void			ft_objlstadd_front(t_obj_lst **lst, t_obj_lst *new);
+// Allocates and returns a new element t_obj_lst *result;
+t_obj_lst		*ft_objlst_new(char *key, char *value);
+// Works like the function 'ft_strdup' but only copies the 'str' until the first
+// matching of char 'c' in 'str'.
+char			*ft_strdupchr(char *str, char c);
+// Creates a list using the NULL terminated 'strArr' and returns a pointer to it
+// In reverse order, using ft_objlst_front.
+t_obj_lst		*ft_objlst_mapFromEnv(char **strArr);
+// Frees the list using the function 'del' and free.
+// Finally, the pointer to the list is set to NULL.
+void			ft_objlst_clear(t_obj_lst **lst, void (*del)(void *));
+// Applies the function 'del' on 'lst'.
+// The memory of 'next' is not freed.
+void			ft_objlst_delone(t_obj_lst *lst, void (*del)(void *));
+// Frees node->content and node, where node is of type *t_obj_lst
+void			ft_objlst_del(void *node);
+// Find 'node' in t_obj_lst 'lst' and deletes it keeping the rest of the list
+// intact.
+void			ft_objlst_rem(t_obj_lst **lst, t_obj_lst *node);
+// Inserts the element 'new' to 'lst' by the alphabetical ordering of new->key.
+void			ft_objlstinsert(t_obj_lst **lst, t_obj_lst *new);
+# ifndef T_FILELST
+#  define T_FILELST
+enum e_redirection_mode
+{
+	REDIR_IN,
+	REDIR_OUT,
+	REDIR_APPEND,
+	REDIR_HEREDOC,
+	REDIR_VOID
+};
+typedef struct s_filelst
+{
+	char					*filename;
+	enum e_redirection_mode	mode;
+	struct s_filelst		*next;
+}	t_filelst;
+# endif
+// Adds the element 'new' at the end of the list.
+void			ft_filelstadd_back(t_filelst **lst, t_filelst *new);
+// Frees the list using the function 'del'.
+// Finally, the pointer to the list is set to NULL.
+void			ft_filelstclear(t_filelst **lst, void (*del)(void *));
+// Frees memory associated with 'node' that is of t_filelst* type.
+void			ft_filelstdel(void *node);
+// Applies the function 'del' on 'lst'.
+// The memory of 'next' is not freed.
+void			ft_filelstdelone(t_filelst *lst, void (*del)(void *));
+// Allocates and returns a new element t_filelst *result;
+t_filelst		*ft_filelstnew(char *filename, int mode);
+// Allocates and returns a NULL terminated str array that has 'str' as its
+// first element.
+char			**ft_strToStrArr(char *str);
+// Returns true if 'str' is a valid number.
+// ex of valid strings: "-234", "+3432"
+// ex of not valid strings: "--32", "234a"
+bool			ft_isStrNumber(char *str);
 
 #endif

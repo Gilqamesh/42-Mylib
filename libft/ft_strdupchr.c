@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodbinclear.c                                   :+:      :+:    :+:   */
+/*   ft_strdupchr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:46:48 by edavid            #+#    #+#             */
-/*   Updated: 2021/07/26 16:27:34 by edavid           ###   ########.fr       */
+/*   Created: 2021/09/10 18:05:24 by edavid            #+#    #+#             */
+/*   Updated: 2021/09/10 18:11:31 by edavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
+/*
+** Works like the function 'ft_strdup' but only copies the 'str' just before the
+** first matching of char 'c' in 'str'.
+*/
+char	*ft_strdupchr(char *str, char c)
 {
-	t_node_binary	*tmp;
-	t_node_binary	**original;
+	char	*tmp;
 
-	if (!lst)
-		return ;
-	original = lst;
-	while (*lst && n)
-	{
-		tmp = (*lst)->next;
-		ft_nodbindelone(*lst, del);
-		*lst = (t_node_binary *)0;
-		*lst = tmp;
-		if (n > 0 && !--n)
-			break ;
-	}
-	*original = NULL;
+	if (str == NULL)
+		return (NULL);
+	tmp = ft_strchr(str, c);
+	if (tmp == NULL)
+		return (ft_strdup(str));
+	return (ft_substr(str, 0, tmp - str));
 }
