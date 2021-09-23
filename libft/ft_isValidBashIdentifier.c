@@ -21,6 +21,8 @@ bool	ft_isValidBashIdentifier(char *str)
 		return (false);
 	if (ft_isalpha(*str) || *str == '_')
 		str++;
+	else
+		return (false);
 	while (*str)
 	{
 		if (!ft_isalnum(*str) && *str != '_')
