@@ -18,6 +18,7 @@
 # include <unistd.h>
 int		ft_printf(const char *format, ...);
 int		ft_dprintf(int fd, const char *format, va_list ap);
+int		ft_vdprintf(int fd, const char *format, va_list ap);
 char	*malloc_conv_spec(char *format, int *format_index);
 int		is_valid_conv_spec(char *conv_spec);
 int		handle_conversion_spec(char *conv_spec, va_list ap);
