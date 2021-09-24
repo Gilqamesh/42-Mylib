@@ -361,11 +361,12 @@ void			ft_objlstinsert(t_obj_lst **lst, t_obj_lst *new);
 #  define T_FILELST
 enum e_redirection_mode
 {
+	REDIR_VOID,
 	REDIR_IN,
 	REDIR_OUT,
 	REDIR_APPEND,
 	REDIR_HEREDOC,
-	REDIR_VOID
+	REDIR_NONE
 };
 typedef struct s_filelst
 {
