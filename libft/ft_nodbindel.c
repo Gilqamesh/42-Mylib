@@ -15,7 +15,7 @@
 
 void	ft_nodbindel(void *node)
 {
-	if (!node)
+	if (node == NULL)
 		return ;
 	if (((t_node_binary *)node)->content)
 		free(((t_node_binary *)node)->content);
