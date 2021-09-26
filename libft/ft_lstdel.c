@@ -15,7 +15,7 @@
 
 void	ft_lstdel(void *node)
 {
-	if (!node)
+	if (node == NULL)
 		return ;
 	if (((t_list *)node)->content)
 		free(((t_list *)node)->content);
