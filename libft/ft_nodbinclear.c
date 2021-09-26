@@ -17,7 +17,7 @@ void	ft_nodbinclear(t_node_binary **lst, void (*del)(void *), int n)
 	t_node_binary	*tmp;
 	t_node_binary	**original;
 
-	if (!lst)
+	if (lst == NULL || del == NULL)
 		return ;
 	original = lst;
 	while (*lst && n)
