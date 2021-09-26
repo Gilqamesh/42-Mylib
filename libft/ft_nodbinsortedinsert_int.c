@@ -22,6 +22,6 @@ void	ft_nodbinsortedinsert_int(t_node_binary **lst, t_node_binary *new)
 	while (*tail && *(int *)new->content > *(int *)(*tail)->content)
 		tail = &(*tail)->next;
 	new->next = (*tail);
-  new->prev = (*tail)->prev;
+	new->prev = (*tail)->prev;
 	(*tail) = new;
 }
