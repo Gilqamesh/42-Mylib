@@ -16,7 +16,7 @@ void	ft_lstsortedinsert_int(t_list **lst, t_list *new)
 {
 	t_list	**tail;
 
-	if (!new || !lst)
+	if (new == NULL || lst == NULL)
 		return ;
 	tail = lst;
 	while (*tail && *(int *)new->content > *(int *)(*tail)->content)
