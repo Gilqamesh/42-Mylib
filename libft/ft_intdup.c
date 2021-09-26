@@ -18,8 +18,8 @@ int	*ft_intdup(int d)
 	int	*result;
 
 	result = malloc(sizeof(*result));
-	if (!result)
-		return ((int *)0);
+	if (result == NULL)
+		return (NULL);
 	*result = d;
 	return (result);
 }
