@@ -17,11 +17,11 @@ t_node_binary	*ft_nodbinnew(void *content)
 {
 	t_node_binary	*new_el;
 
-	new_el = (t_node_binary *)malloc(sizeof(*new_el));
-	if (!new_el)
-		return ((t_node_binary *)0);
+	new_el = malloc(sizeof(*new_el));
+	if (new_el == NULL)
+		return (NULL);
 	new_el->content = content;
-	new_el->next = (t_node_binary *)0;
-	new_el->prev = (t_node_binary *)0;
+	new_el->next = NULL;
+	new_el->prev = NULL;
 	return (new_el);
 }
