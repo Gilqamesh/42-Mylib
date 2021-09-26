@@ -14,11 +14,11 @@
 
 void	ft_nodbinadd_front(t_node_binary **lst, t_node_binary *new)
 {
-	if (!new || !lst)
+	if (lst == NULL || new == NULL)
 		return ;
 	new->next = *lst;
 	*lst = new;
 	if (new->next)
 		new->next->prev = new;
-	new->prev = (t_node_binary *)0;
+	new->prev = NULL;
 }
