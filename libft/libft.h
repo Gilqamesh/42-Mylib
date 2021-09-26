@@ -237,6 +237,9 @@ t_node_binary	*ft_nodbinmap(t_node_binary *lst, void *(*f)(void *),
 void			ft_nodbinprint_int(t_node_binary *lst, int n);
 // Frees node->content and node, where node is of type *t_node_binary
 void			ft_nodbindel(void *node);
+// inserts 'new' into 'lst' in a way that *(int *) 'content' is in ascending
+// order
+void			ft_nodbinsortedinsert_int(t_node_binary **lst, t_node_binary *new);
 # ifndef T_2_INT
 #  define T_2_INT
 typedef struct s_2_int
