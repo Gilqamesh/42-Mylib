@@ -14,5 +14,7 @@
 
 void	ft_nodbindelone(t_node_binary *lst, void (*del)(void *))
 {
+	if (lst == NULL || del == NULL)
+		return ;
 	(*del)(lst);
 }
