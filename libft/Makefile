@@ -34,7 +34,7 @@ ft_objlst_findbykey.c ft_objlst_add_front.c ft_strdupchr.c ft_objlst_new.c \
 ft_objlst_mapFromEnv.c ft_objlst_clear.c ft_objlst_delone.c ft_objlst_del.c \
 ft_filelstadd_back.c ft_filelstclear.c ft_filelstdel.c ft_filelstdelone.c \
 ft_filelstnew.c ft_objlst_rem.c ft_strToStrArr.c ft_trim_from_right_index.c \
-ft_objlstinsert.c ft_isStrNumber.c ft_nodbinsortedinsert_int.c
+ft_objlstinsert.c ft_isStrNumber.c ft_nodbinsortedinsert_int.c ft_get_ptr.c
 NAME = libft.a
 
 
