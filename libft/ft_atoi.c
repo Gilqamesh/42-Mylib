@@ -35,7 +35,7 @@ int	ft_atoi(const char *nptr)
 	result = 0;
 	while (*nptr && ft_isdigit(*nptr))
 	{
-		if (result >= INT_MAX / 10)
+		if (result >= INT_MAX / 10 || (result == INT_MAX / 10 && *nptr > '7'))
 		{
 			if (is_negative)
 				result = INT_MIN;
