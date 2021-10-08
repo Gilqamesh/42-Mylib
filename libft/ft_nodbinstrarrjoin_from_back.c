@@ -1,3 +1,5 @@
+#include "libft.h"
+
 static void	concatenateResult(char **result, t_node_binary *cur)
 {
 	int	result_index;
