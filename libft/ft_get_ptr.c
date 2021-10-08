@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 /*
 ** Install 'nullable_ptr' by passing it as an argument first time calling this
 ** function. Anytime the function called afterwards it will return the installed
