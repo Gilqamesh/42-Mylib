@@ -30,7 +30,7 @@ static bool	isStrContainedInStrArr(char *str, char **strArr)
 
 static bool	isStrCKeyword(char *str)
 {
-	static char	**keywords = {
+	static char	*keywords[] = {
 		"auto", "break", "char", "const", "continue", "do", "double", "else",
 		"extern", "float", "float", "for", "if", NULL
 	};
