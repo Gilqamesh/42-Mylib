@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdlib.h>
 
 static void	concatenateResult(char **result, t_node_binary *cur)
 {
