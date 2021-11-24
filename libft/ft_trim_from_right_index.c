@@ -19,7 +19,6 @@ int	ft_trim_from_right_index(char *str, char *set)
 {
 	bool	setChars[256];
 	int		i;
-	int		ret;
 
 	if (str == NULL || set == NULL)
 		return (0);
@@ -29,7 +28,6 @@ int	ft_trim_from_right_index(char *str, char *set)
 	i = -1;
 	while (set[++i])
 		setChars[(unsigned char)set[i]] = true;
-	ret = 0;
 	i = ft_strlen(str);
 	while (--i >= 0)
 		if (setChars[(unsigned char)str[i]] == false)
