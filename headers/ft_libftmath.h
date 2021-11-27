@@ -13,5 +13,7 @@ int	  ft_intlen(int d);
 int	  ft_maxofint(int a, int b);
 // Returns the minimum integer out of 'a' and 'b'
 int	  ft_minofint(int a, int b);
+// Rounds to the nearest integer (towards 0).
+int		ft_round_to_nearest_int(double a);
 
 #endif /* FT_LIBFTMATH_H */
