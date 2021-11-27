@@ -97,7 +97,7 @@ SRC =	$(CTYPE_PATH) $(EXTRA_PATH) $(GNL_PATH) $(DLIST_PATH) $(FILELIST_PATH) $(O
 		$(SLIST_PATH) $(MATH_PATH) $(MEMORY_PATH) $(PRINT_PATH) $(PRINTF_PATH) $(PUT_PATH) \
 		$(SORT_PATH) $(STRING_PATH) $(VALIDIFIERS_PATH)
 INCLUDES = ../../$(HDIR)
-NAME = libft.a
+NAME = libmylib.a
 
 $(NAME): $(foreach file,$(SRC:.c=.o),$(ODIR)/$(file))
 	ar -rs $(NAME) $?
