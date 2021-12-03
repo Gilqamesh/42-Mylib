@@ -29,6 +29,8 @@ int	ft_dprintf(int fd, const char *format, ...)
 	va_list		ap;
 	t_printf	mystruct;
 
+	if (format == NULL)
+		return (-1);
 	ft_bzero(&mystruct, sizeof(mystruct));
 	va_start(ap, format);
 	while (format[mystruct.index])
@@ -54,6 +56,8 @@ int	ft_vdprintf(int fd, const char *format, va_list ap)
 {
 	t_printf	mystruct;
 
+	if (format == NULL)
+		return (-1);
 	ft_bzero(&mystruct, sizeof(mystruct));
 	while (format[mystruct.index])
 	{
