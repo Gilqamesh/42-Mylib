@@ -1,91 +1,77 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: edavid <edavid@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/19 15:10:42 by edavid            #+#    #+#             */
-/*   Updated: 2021/11/26 20:21:14 by edavid           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ft_libftgnl.h"
 #include <unistd.h>
-#include <limits.h>
 #include "ft_libftstring.h"
 #include "ft_libftmemory.h"
+#include "ft_libftgnl.h"
+#include "ft_libftprint.h"
 #ifndef OPEN_MAX
-# define OPEN_MAX 3000
+# define OPEN_MAX 1000
 #endif
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 100
+# define BUFFER_SIZE 10000
 #endif
 
-static int	reset_ret(char **line, int ret, char **buf_p)
+static int read_into_buffer(int fd, char **buffer)
 {
-	if (!ret && line)
-	{
-		*line = malloc(1);
-		**line = '\0';
-	}
-	if (buf_p)
-	{
-		free(*buf_p);
-		*buf_p = (char *)0;
-	}
-	return (ret);
+    /* read into the buffer and null terminate it */
+    int read_ret = read(fd, *buffer, BUFFER_SIZE);
+    if (read_ret == -1) { /* read failed */
+        ft_dprintf(STDERR_FILENO, "read failed in get_next_line\n");
+        free(*buffer);
+        *buffer = NULL;
+        exit(EXIT_FAILURE);
+    }
+    if (read_ret == 0) { /* immediate EOF */
+        free(*buffer);
+        *buffer = NULL;
+        return (1);
+    }
+    /* EOF might have been reached, null terminate the buffer at the correct position */
+    (*buffer)[read_ret] = '\0';
+    return (0);
 }
 
-static int	get_next_line2(char **buf, int buf_len,
-char **line, int fd)
+char *get_next_line(int fd)
 {
-	char	*tmp_str;
-	int		tmp_index;
+    static char *buffers[OPEN_MAX] = { 0 };
 
-	tmp_str = ft_strdup_v2(buf[fd], buf_len);
-	free(buf[fd]);
-	buf_len += BUFFER_SIZE;
-	buf[fd] = malloc(buf_len + 1);
-	tmp_index = read(fd, buf[fd], BUFFER_SIZE);
-	if (tmp_index <= 0)
-	{
-		if (tmp_index == 0)
-			*line = tmp_str;
-		else
-			free(tmp_str);
-		return (reset_ret((char **)0, tmp_index, &buf[fd]));
-	}
-	buf[fd][tmp_index] = '\0';
-	buf[fd] = ft_strjoin_free(tmp_str, buf[fd]);
-	return (get_next_line(fd, line));
-}
-
-int	get_next_line(int fd, char **line)
-{
-	int				tmp_index;
-	int				buf_len;
-	static char		*buffers[OPEN_MAX] = {0};
-
-	if (fd < 0 || BUFFER_SIZE <= 0 || line == NULL || fd >= OPEN_MAX)
-		return (-1);
-	if (!buffers[fd])
-	{
-		buffers[fd] = malloc(BUFFER_SIZE + 1);
-		if (!buffers[fd])
-			return (-1);
-		buf_len = BUFFER_SIZE;
-		tmp_index = read(fd, buffers[fd], BUFFER_SIZE);
-		if (tmp_index <= 0)
-			return (reset_ret(line, tmp_index, &buffers[fd]));
-		buffers[fd][tmp_index] = '\0';
-		return (get_next_line(fd, line));
-	}
-	buf_len = ft_strlen(buffers[fd]);
-	tmp_index = contains_newline(buffers[fd], buf_len);
-	if (tmp_index == buf_len)
-		return (get_next_line2(buffers, buf_len, line, fd));
-	*line = ft_strdup_v2(buffers[fd], tmp_index);
-	ft_memmove(buffers[fd], buffers[fd] + tmp_index + 1, buf_len - tmp_index);
-	return (1);
+    if (fd < 0 || fd >= OPEN_MAX)
+        return (NULL);
+    /* first time we use the specific buffer */
+    if (buffers[fd] == NULL)
+    {
+        /*
+        * +1 for the null terminating character
+        * this also let's us track the end of the string
+        */
+        buffers[fd] = malloc(BUFFER_SIZE + 1);
+        if (buffers[fd] == NULL)
+        {
+            ft_dprintf(STDERR_FILENO, "malloc failed in get_next_line\n");
+            exit(EXIT_FAILURE);
+        }
+        if (read_into_buffer(fd, buffers + fd))
+            return (NULL);
+    }
+    /* if we have nothing in the buffer then read into it, return NULL on immediate EOF */
+    if (buffers[fd][0] == '\0' && read_into_buffer(fd, buffers + fd))
+        return (NULL);
+    /* check to see if we have a newline in the string */
+    char *newline_index = ft_strchr(buffers[fd], '\n');
+    if (newline_index == NULL) /* no newline in the string */
+    {
+        /* return the concatanation of the string and gnl()
+        * handle the buffer first to prepare for the next call
+        */
+        char *tmp = ft_strdup(buffers[fd]);
+        buffers[fd][0] = '\0';
+        char *next_line = get_next_line(fd);
+        return (ft_strjoin_free(tmp, next_line));
+    }
+    /* there is a newline in the string
+    * rearrange buffer
+    * then return the line up to the newline included
+    */
+    char *cur_line = ft_substr(buffers[fd], 0, newline_index - buffers[fd] + 1);
+    ft_memmove(buffers[fd], newline_index + 1, BUFFER_SIZE - (newline_index - buffers[fd]));
+    return (cur_line);
 }
